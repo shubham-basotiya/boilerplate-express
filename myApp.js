@@ -18,11 +18,13 @@ app.use((req, res, next) => {
     next();
 })
 
-app.route('/name').get((req, res) => {
+app.route('/name').post((req, res) => {
+    res.json(req.body);
+}).get((req, res) => {
     const {first, last} = req.query;
     // console.log(`First Name: ${first}, Last Name: ${last}`)
-    res.json({name: `${first} ${last}`})
-})
+    res.json({name: `${first} ${last}`});
+});
 
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
