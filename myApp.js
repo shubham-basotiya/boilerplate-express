@@ -17,6 +17,11 @@ app.use((req, res, next) => {
     next();
 })
 
+app.get('/now', (req, res, next) => {
+    req.time = new Date().toString();
+    next();
+})
+
 
 absolutePathhtml = __dirname + '/views/index.html';
 
