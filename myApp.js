@@ -1,9 +1,10 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 require('dotenv').config();
 
 app.use('/public', express.static(__dirname + '/public'));
-
+app.use(bodyParser.urlencoded({extended: false}))
 console.log("Hello World");
 
 
