@@ -12,6 +12,11 @@ console.log("Hello World");
 //     res.send("Hello Express");
 // });
 
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+    next();
+})
+
 
 absolutePathhtml = __dirname + '/views/index.html';
 
