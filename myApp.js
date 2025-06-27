@@ -20,7 +20,9 @@ app.use((req, res, next) => {
 app.get('/now', (req, res, next) => {
     req.time = new Date().toString();
     next();
-})
+}, (req, res) => {
+    res.json({time: req.time});
+});
 
 
 absolutePathhtml = __dirname + '/views/index.html';
