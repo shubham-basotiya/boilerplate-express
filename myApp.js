@@ -19,7 +19,8 @@ app.use((req, res, next) => {
 })
 
 app.route('/name').post((req, res) => {
-    res.json(req.body);
+    const {first, last} = req.body;
+    res.json({name: `${first} ${last}`});
 }).get((req, res) => {
     const {first, last} = req.query;
     // console.log(`First Name: ${first}, Last Name: ${last}`)
