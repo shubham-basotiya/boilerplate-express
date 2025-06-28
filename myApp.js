@@ -24,14 +24,16 @@ app.get('/api/:date', (req, res) => {
      if(!isNaN(date)){
         const unixDate = new Date(parseInt(date));
         res.json({unix: new Date(unixDate).getTime(), utc: new Date(unixDate).toUTCString()});
-    } else if(isNaN(date)){
-        const dateObj = new Date(date);
-        if(dateObj.toString() === 'Invalid Date'){
-            res.json({error: "Invalid Date"});
-        } else {
-            res.json({unix: dateObj.getTime(), utc: dateObj.toUTCString()});
-        }
-    } else {
+    } 
+    // else if(isNaN(date)){
+    //     const dateObj = new Date(date);
+    //     if(dateObj.toString() === 'Invalid Date'){
+    //         res.json({error: "Invalid Date"});
+    //     } else {
+    //         res.json({unix: dateObj.getTime(), utc: dateObj.toUTCString()});
+    //     }
+    // } 
+    else {
         const currentDate = new Date();
         res.json({unix: currentDate.getTime(), utc: currentDate.toUTCString()});
     }
